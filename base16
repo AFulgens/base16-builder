@@ -93,7 +93,8 @@ class Theme
         "hexbgr" => to_hex_bgr(hex),
         "dhex" => to_dhex(hex),
         "rgb" => to_rgb(hex),
-        "srgb" => to_srgb(hex)
+        "srgb" => to_srgb(hex),
+		"bgrd" => to_hex_bgr_dec(hex)
       }
     end
   end
@@ -153,6 +154,10 @@ class Theme
     hex.scan(/../).reverse.join
   end
 
+  def to_hex_bgr_dec(hex)
+    hex.scan(/../).reverse.join.to_i(16).to_s(10)
+  end
+  
   def to_dhex(hex)
     hex.scan(/../).map {|color| color + color}.join
   end
